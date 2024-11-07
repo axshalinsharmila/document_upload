@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+@import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+@import 'react-pdf/dist/esm/Page/TextLayer.css';
+
+:root {
+    --body-bg: #f5f8ff;
+    --box-bg: #fff;
+    --input-bg: #f5f8ff;
+    --txt-color: #2f2d2f;
+    --txt-second-color: #ccc;
+    --border-color: #4267b2;
+    --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: var(--body-bg);
+    color: var(--txt-color);
+    padding: 50px;
+    height: 100vh;
+}
+
+.box {
+    background-color: var(--box-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+
+.container{
+  margin-left: auto;
+}
+.text-content {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: #333;
+  padding: 10px;
+  background: #fff;
+  font-family: Consolas, monospace;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.word-content {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: #333;
+  padding: 10px;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.excel-content {
+  overflow-x: auto;
+  overflow-y: auto;
+  /* background: #fff; */
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+}
+
+/* Table styling for Excel data */
+.excel-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.excel-content th,
+.excel-content td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.excel-content th {
+  background-color: #f7fafc;
+  font-weight: bold;
+}
+.file-drop-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dropzone {
+  cursor: pointer;
+}
+
+.file-preview {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.word-preview,
+.excel-preview,
+.ppt-preview {
+  margin-top: 10px;
+}
+
+.word-preview pre,
+.excel-preview table,
+.ppt-preview div {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+mark {
+  background-color: #ffeb3b;
+  color: black;
+  font-weight: bold;
+}
+* {
+  scrollbar-color: #ececec transparent;
+}
