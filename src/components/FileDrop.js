@@ -227,38 +227,23 @@ console.log("FILETYPE",fileType, textContent)
 
   const handlePreviewFile = (file, index) => {
     setActiveFileIndex(index);
-    if (file.type === "text/plain") {
-      setShowTextPreview(true);
-      setShowPPTPreview(false);
-      setShowExcelPreview(false);
-      setShowWordPreview(false);
-      setShowPdfPreview(false);
-    } else if (file.name.endsWith(".pptx")) {
-      setShowPPTPreview(true);
-      setShowTextPreview(false);
-      setShowExcelPreview(false);
-      setShowWordPreview(false);
-      setShowPdfPreview(false);
-    } else if (file.name.endsWith(".xlsx") || file.name.endsWith(".xls")) {
-      setShowExcelPreview(true);
-      setShowPPTPreview(false);
-      setShowTextPreview(false);
-      setShowWordPreview(false);
-      setShowPdfPreview(false);
-    } else if (file.name.endsWith(".docx")) {
-      setShowWordPreview(true);
-      setShowExcelPreview(false);
-      setShowPPTPreview(false);
-      setShowTextPreview(false);
-      setShowPdfPreview(false);
-    } else if (file.type === "application/pdf") {
-      setShowPdfPreview(true);
-      setShowWordPreview(false);
-      setShowExcelPreview(false);
-      setShowPPTPreview(false);
-      setShowTextPreview(false);
-    }
+    
+    const previewStates = {
+      "text/plain": { showTextPreview: true },
+      ".pptx": { showPPTPreview: true },
+      ".xlsx": { showExcelPreview: true },
+      ".xls": { showExcelPreview: true },
+      ".docx": { showWordPreview: true },
+      "application/pdf": { showPdfPreview: true }
+    };
+    const matchedState = previewStates[file.type] || previewStates[file.name.slice(file.name.lastIndexOf("."))];
+    setShowTextPreview(!!matchedState?.showTextPreview);
+    setShowPPTPreview(!!matchedState?.showPPTPreview);
+    setShowExcelPreview(!!matchedState?.showExcelPreview);
+    setShowWordPreview(!!matchedState?.showWordPreview);
+    setShowPdfPreview(!!matchedState?.showPdfPreview);
   };
+  
 
   return (
     <form>
